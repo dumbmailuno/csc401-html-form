@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CSC401 — a simple, accessible student registration form built with HTML, CSS and JavaScript." />
+  <title>Student Registration · CSC401</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="form-title">
+      <header class="card__header">
+        <h1 id="form-title">Student Registration</h1>
+        <p class="subtitle">CSC401 · Simple HTML Form — built with HTML, CSS &amp; JavaScript.</p>
+      </header>
+
+      <form id="registrationForm" class="form" novalidate>
+
+        <!-- Full name -->
+        <div class="field" data-field="fullName">
+          <label for="fullName">Full name <span class="req" aria-hidden="true">*</span></label>
+          <input
+            type="text" id="fullName" name="fullName"
+            placeholder="Ada Lovelace" autocomplete="name"
+            required aria-describedby="fullName-error" />
+          <p class="error" id="fullName-error"></p>
+        </div>
+
+        <!-- Email -->
+        <div class="field" data-field="email">
+          <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+          <input
+            type="email" id="email" name="email"
+            placeholder="ada@example.com" autocomplete="email"
+            required aria-describedby="email-error" />
+          <p class="error" id="email-error"></p>
+        </div>
+
+        <!-- Phone (optional) -->
+        <div class="field" data-field="phone">
+          <label for="phone">Phone number <span class="hint">(optional)</span></label>
+          <input
+            type="tel" id="phone" name="phone"
+            placeholder="+234 801 234 5678" autocomplete="tel"
+            aria-describedby="phone-error" />
+          <p class="error" id="phone-error"></p>
+        </div>
+
+        <!-- Course -->
+        <div class="field" data-field="course">
+          <label for="course">Course <span class="req" aria-hidden="true">*</span></label>
+          <select id="course" name="course" required aria-describedby="course-error">
+            <option value="">— Select a course —</option>
+            <option value="csc401">CSC401 — Web Technologies</option>
+            <option value="csc301">CSC301 — Data Structures</option>
+            <option value="csc305">CSC305 — Operating Systems</option>
+            <option value="csc410">CSC410 — Software Engineering</option>
+          </select>
+          <p class="error" id="course-error"></p>
+        </div>
+
+        <!-- Level -->
+        <fieldset class="fieldset" data-field="level" aria-describedby="level-error">
+          <legend>Level <span class="req" aria-hidden="true">*</span></legend>
+          <div class="radio-row">
+            <label><input type="radio" name="level" value="100" required /> 100</label>
+            <label><input type="radio" name="level" value="200" /> 200</label>
+            <label><input type="radio" name="level" value="300" /> 300</label>
+            <label><input type="radio" name="level" value="400" /> 400</label>
+          </div>
+          <p class="error" id="level-error"></p>
+        </fieldset>
+
+        <!-- Password -->
+        <div class="field" data-field="password">
+          <label for="password">Password <span class="req" aria-hidden="true">*</span></label>
+          <div class="password-wrap">
+            <input
+              type="password" id="password" name="password"
+              placeholder="At least 8 characters" autocomplete="new-password"
+              required aria-describedby="password-error" />
+            <button
+              type="button" id="togglePassword" class="toggle-password"
+              aria-controls="password" aria-pressed="false">Show</button>
+          </div>
+          <p class="error" id="password-error"></p>
+        </div>
+
+        <!-- Confirm password -->
+        <div class="field" data-field="confirmPassword">
+          <label for="confirmPassword">Confirm password <span class="req" aria-hidden="true">*</span></label>
+          <input
+            type="password" id="confirmPassword" name="confirmPassword"
+            placeholder="Re-type your password" autocomplete="new-password"
+            required aria-describedby="confirmPassword-error" />
+          <p class="error" id="confirmPassword-error"></p>
+        </div>
+
+        <!-- Terms -->
+        <div class="field" data-field="terms">
+          <label class="checkbox" for="terms">
+            <input type="checkbox" id="terms" name="terms" required aria-describedby="terms-error" />
+            <span>I agree to the terms and conditions of this demo form.</span>
+          </label>
+          <p class="error" id="terms-error"></p>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button type="submit" class="btn btn--primary">Submit registration</button>
+          <button type="reset" class="btn btn--ghost">Reset form</button>
+        </div>
+      </form>
+
+      <div id="formSuccess" class="form-success" role="status" tabindex="-1" hidden></div>
+    </section>
+  </main>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
